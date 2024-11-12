@@ -9,7 +9,7 @@ from .models import Patterns
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 class PatternListCreateView(generics.ListCreateAPIView):
     """
@@ -18,7 +18,7 @@ class PatternListCreateView(generics.ListCreateAPIView):
     """
     queryset = Patterns.objects.all()
     serializer_class = PatternsSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         # 요청한 사용자(관리자)를 author로 설정
@@ -34,5 +34,5 @@ class PatternRetrieveDeleteView(generics.RetrieveDestroyAPIView):
     """
     queryset = Patterns.objects.all()
     serializer_class = PatternsSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
  
