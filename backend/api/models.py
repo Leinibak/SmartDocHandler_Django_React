@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Patterns(models.Model):
+class Pattern(models.Model):
     # 고객사 이름
     customer = models.CharField(max_length=100)
 
@@ -34,8 +34,8 @@ class Patterns(models.Model):
     def __str__(self):
         return f"{self.customer} - {self.category} ({self.region})"
 
-    # 관리자만 접근 가능하도록 하기 위한 설정
-    def save(self, *args, **kwargs):
-        if not self.author.is_staff:
-            raise PermissionError("Only admins can create or modify patterns.")
-        super().save(*args, **kwargs)
+    # # 관리자만 접근 가능하도록 하기 위한 설정
+    # def save(self, *args, **kwargs):
+    #     if not self.author.is_staff:
+    #         raise PermissionError("Only admins can create or modify patterns.")
+    #     super().save(*args, **kwargs)
