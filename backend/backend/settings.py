@@ -149,3 +149,7 @@ CORS_ALLOWS_CREDENTIALS = True
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:5173",  # React 개발 서버
 # ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # React 개발 서버
+    "http://127.0.0.1:5173",
+]
