@@ -14,7 +14,7 @@ class CreateUserView(generics.CreateAPIView):
 class PatternListCreateView(generics.ListCreateAPIView):
     # queryset = Patterns.objects.all()
     serializer_class = PatternSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
 
     def get_queryset(self):
         user = self.request.user
@@ -28,7 +28,7 @@ class PatternListCreateView(generics.ListCreateAPIView):
 
 class PatternDeleteView(generics.DestroyAPIView):
     serializer_class = PatternSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
 
     def get_queryset(self):
         user = self.request.user
